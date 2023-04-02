@@ -1,4 +1,6 @@
 import asyncio
+import json
+
 import utils.parser as parser
 from utils.parser import scrape
 import aioshutil
@@ -50,18 +52,8 @@ async def file_sorting(filename: str, fav_tags: List[str]) -> None:
 
 
 async def folder_sorting(folder: str = "E:\\SortArts\\Phone\\VK\\webp") -> None:
-    tags = [
-        "loli", "double_anal", "solo anal_insertion", "solo anal", "full_nelson anal", "anal masturbation",
-        "anal_masturbation", "anal_fingering", "anal", "spread_anus", "gaping", "fellatio", "blowjob", "paizuri",
-        "tekoki", "solo masturbation", "huge_breasts sex", "large_breasts sex", "sex", "anus", "sling_swimsuit nipples",
-        "bikini nipples", "nipple_tweak", "solo huge_breasts nipples", "solo large_breasts nipples", "lactation",
-        "solo nipples", "nipples", "sling_swimsuit", "huge_breasts bikini", "large_breasts bikini", "bikini",
-        "side-tie_panties", "solo ass", "ass_focus", "solo huge_breasts", "solo large_breasts", "solo breasts",
-        "solo thick_thighs", "large_breasts thick_thighs", "large_breasts underwear", "underwear", "thick_thighs",
-        "undressing", "animated", "swimsuit", "swimsuits", "bikini", "butt_plug", "ass_grab", "spread_ass", "huge_ass",
-        "ass", "breasts", "nude", "no_bra", "thighs", "solo", "towel", "maid", "bunny_girl", "tagme", "absurdres",
-        "topless", "kitsune", "breast_hold", "thighhighs"
-    ]
+    with open("data/tags.json", "r", encoding="utf-8") as fp:
+        tags = json.load(fp)['features']
     files = [os.path.join(folder, i) for i in filter(lambda x: os.path.splitext(x)[-1], os.listdir(folder))]
     for file in files:
         await file_sorting(file, tags)
