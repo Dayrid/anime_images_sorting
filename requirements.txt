@@ -1,0 +1,9 @@
+aiohttp~=3.8.3
+beautifulsoup4~=4.11.1
+aiofiles~=0.7.0
+regex~=2022.7.9
+python-dotenv~=0.21.0
+pybooru~=4.2.2
+bs4~=0.0.1
+sqlalchemy~=2.0.2
+pydantic~=1.10.4
