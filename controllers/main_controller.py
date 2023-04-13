@@ -51,7 +51,7 @@ async def file_sorting(filename: str, fav_tags: List[str]) -> None:
         return
 
 
-async def folder_sorting(folder: str = "E:\\SortArts\\Phone\\VK\\webp") -> None:
+async def folder_sorting(folder: str = "C:\\Users\\dayrid\\Downloads\\Сохранённые фотографии") -> None:
     with open("../data/tags.json", "r", encoding="utf-8") as fp:
         tags = json.load(fp)['features']
     files = [os.path.join(folder, i) for i in filter(lambda x: os.path.splitext(x)[-1], os.listdir(folder))]
